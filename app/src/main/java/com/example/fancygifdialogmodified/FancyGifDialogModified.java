@@ -41,6 +41,10 @@ public class FancyGifDialogModified {
         this.cancel=builder.cancel;
     }
 
+    public void hide(){
+        dialog.hide();
+    }
+
     public static class Builder{
         private String title,message,positiveBtnText,negativeBtnText,positiveBtnColor,negativeBtnColor;
         private Activity activity;
@@ -176,9 +180,6 @@ public class FancyGifDialogModified {
             return new FancyGifDialogModified(this);
         }
 
-        public void hide(){
-            dialog.hide();
-        }
 
     }
 }
