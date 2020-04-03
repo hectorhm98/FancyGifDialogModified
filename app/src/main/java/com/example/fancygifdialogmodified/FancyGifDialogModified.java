@@ -25,7 +25,7 @@ public class FancyGifDialogModified {
     private FancyGifDialogModifiedListener positiveListener,negativeListener;
     private boolean cancel;
     int gifImageResource;
-    static Dialog dialog;
+    static Dialog dialogAux;
 
     private FancyGifDialogModified(Builder builder){
         this.title=builder.title;
@@ -41,8 +41,8 @@ public class FancyGifDialogModified {
         this.cancel=builder.cancel;
     }
 
-    public void hide(){
-        dialog.hide();
+    public void dismiss(){
+        dialogAux.dismiss();
     }
 
     public static class Builder{
@@ -114,7 +114,7 @@ public class FancyGifDialogModified {
             ImageView iconImg;
             final Button pBtn,nBtn;
             GifImageView gifImageView;
-            //final Dialog dialog;
+            final Dialog dialog;
             dialog=new Dialog(activity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -174,7 +174,7 @@ public class FancyGifDialogModified {
                     }
                 });
             }
-
+            dialogAux = dialog;
             dialog.show();
 
             return new FancyGifDialogModified(this);
