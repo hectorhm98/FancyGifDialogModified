@@ -42,7 +42,7 @@ public class FancyGifDialogModified {
     }
 
     public void dismiss(){
-        dialogAux.dismiss();
+        this.dialogAux.dismiss();
     }
 
     public static class Builder{
@@ -175,7 +175,7 @@ public class FancyGifDialogModified {
                 });
             }
             dialogAux = dialog;
-            dialog.show();
+            dialogAux.show();
 
             return new FancyGifDialogModified(this);
         }
