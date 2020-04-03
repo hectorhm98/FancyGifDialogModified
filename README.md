@@ -16,6 +16,6 @@ Add it in your root build.gradle at the end of repositories:
 Add this to your module's build.gradle file:
 ```Java
 dependencies {
-	        implementation 'com.github.hectorhm98:FancyGifDialogModified:-SNAPSHOT'
+	        implementation 'com.github.hectorhm98:FancyGifDialogModified:master-SNAPSHOT'
 	}
   
