@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableString;
 import android.text.SpannedString;
 import android.view.View;
 import android.view.Window;
@@ -22,7 +23,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class FancyGifDialogModified {
     private String title,message,positiveBtnText,negativeBtnText,positiveBtnColor,negativeBtnColor;
-    private SpannedString messageBold;
+    private SpannableString messageBold;
     private Activity activity;
     private FancyGifDialogModifiedListener positiveListener,negativeListener;
     private boolean cancel;
@@ -50,7 +51,7 @@ public class FancyGifDialogModified {
 
     public static class Builder{
         private String title,message,positiveBtnText,negativeBtnText,positiveBtnColor,negativeBtnColor;
-        private SpannedString messageBold;
+        private SpannableString messageBold;
         private Activity activity;
         private FancyGifDialogModifiedListener positiveListener,negativeListener;
         private boolean cancel;
@@ -70,7 +71,7 @@ public class FancyGifDialogModified {
             return this;
         }
 
-        public Builder setMessageBold(SpannedString message){
+        public Builder setMessageBold(SpannableString message){
             this.messageBold=message;
             return this;
         }
