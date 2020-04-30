@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.text.SpannedString;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class FancyGifDialogModified {
     private String title,message,positiveBtnText,negativeBtnText,positiveBtnColor,negativeBtnColor;
+    private SpannedString messageBold;
     private Activity activity;
     private FancyGifDialogModifiedListener positiveListener,negativeListener;
     private boolean cancel;
@@ -30,6 +32,7 @@ public class FancyGifDialogModified {
     private FancyGifDialogModified(Builder builder){
         this.title=builder.title;
         this.message=builder.message;
+        this.messageBold = builder.messageBold;
         this.activity=builder.activity;
         this.positiveListener=builder.positiveListener;
         this.negativeListener=builder.negativeListener;
@@ -47,6 +50,7 @@ public class FancyGifDialogModified {
 
     public static class Builder{
         private String title,message,positiveBtnText,negativeBtnText,positiveBtnColor,negativeBtnColor;
+        private SpannedString messageBold;
         private Activity activity;
         private FancyGifDialogModifiedListener positiveListener,negativeListener;
         private boolean cancel;
@@ -63,6 +67,11 @@ public class FancyGifDialogModified {
 
         public Builder setMessage(String message){
             this.message=message;
+            return this;
+        }
+
+        public Builder setMessageBold(SpannedString message){
+            this.messageBold=message;
             return this;
         }
 
@@ -132,7 +141,12 @@ public class FancyGifDialogModified {
 
             //values
             title1.setText(title);
-            message1.setText(message);
+            if(message != null) {
+                message1.setText(message);
+            }
+            else {
+                message1.setText(messageBold);
+            }
             if(positiveBtnText!=null){
                 pBtn.setText(positiveBtnText);
             }
